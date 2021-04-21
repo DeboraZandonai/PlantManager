@@ -1,28 +1,27 @@
 import React from "react";
 import {
-  SafeAreaView,
   Text,
+  SafeAreaView,
   Image,
-  TouchableOpacity,
   StyleSheet,
+  TouchableOpacity,
   Dimensions,
   View,
 } from "react-native";
 import { Feather } from "@expo/vector-icons";
+import { useNavigation } from "@react-navigation/core";
 
 import wateringImg from "../assets/watering.png";
 import colors from "../styles/colors";
 import fonts from "../styles/fonts";
-import { useNavigation } from "@react-navigation/core";
 
 export function Welcome() {
-
   const navigation = useNavigation();
 
   function handleStart() {
-    navigation.navigate('UserIdentification')
+    navigation.navigate("UserIdentification");
   }
-  
+
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.wrapper}>
@@ -39,12 +38,14 @@ export function Welcome() {
           sempre que precisar.
         </Text>
 
-        <TouchableOpacity 
-        style={styles.button} 
-        activeOpacity={0.7}
-        onPress={handleStart}
+        <TouchableOpacity
+          style={styles.button}
+          activeOpacity={0.7}
+          onPress={handleStart}
         >
-          <Feather name="chevron-right" style={styles.buttonIcon} />
+          <Text>
+            <Feather name="chevron-right" style={styles.buttonIcon} />
+          </Text>
         </TouchableOpacity>
       </View>
     </SafeAreaView>
@@ -54,6 +55,8 @@ export function Welcome() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    alignItems: "center",
+    justifyContent: "space-around",
   },
   wrapper: {
     flex: 1,
@@ -63,7 +66,6 @@ const styles = StyleSheet.create({
   },
   title: {
     fontSize: 28,
-    fontWeight: "bold",
     textAlign: "center",
     color: colors.heading,
     marginTop: 38,
@@ -73,9 +75,9 @@ const styles = StyleSheet.create({
   subtitle: {
     textAlign: "center",
     fontSize: 18,
+    fontFamily: fonts.text,
     paddingHorizontal: 20,
     color: colors.heading,
-    fontFamily: fonts.text,
   },
   image: {
     height: Dimensions.get("window").width * 0.7,
