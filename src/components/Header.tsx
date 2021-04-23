@@ -1,17 +1,30 @@
-import React from "react";
-import { Text, StyleSheet, View, Image } from "react-native";
+import React, { useEffect, useState } from "react";
+import { StyleSheet, View, Text, Image } from "react-native";
 import { getStatusBarHeight } from "react-native-iphone-x-helper";
+import AsyncStorage from "@react-native-async-storage/async-storage";
+
+import userImg from "../assets/eu.jpeg";
 import colors from "../styles/colors";
 import fonts from "../styles/fonts";
-import userImg from "../assets/eu.jpeg";
-import { color } from "react-native-reanimated";
 
 export function Header() {
+  const [userName, setUserName] = useState<string>();
+
+  useEffect(() => {
+    async function loadStorageUserName() {
+      const user = await AsyncStorage.getItem("@plantmanager:user");
+
+      setUserName(user || "");
+    }
+
+    loadStorageUserName();
+  }, [userName]);
+
   return (
     <View style={styles.container}>
       <View>
         <Text style={styles.greeting}>Olá,</Text>
-        <Text style={styles.userName}>Debora</Text>
+        <Text style={styles.username}>{userName}</Text>
       </View>
 
       <Image source={userImg} style={styles.image} />
@@ -25,8 +38,8 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "center",
+    paddingVertical: 20,
     marginTop: getStatusBarHeight(),
-    paddingVertical: 30,
   },
   image: {
     width: 70,
@@ -38,7 +51,7 @@ const styles = StyleSheet.create({
     color: colors.heading,
     fontFamily: fonts.text,
   },
-  userName: {
+  username: {
     fontSize: 32,
     fontFamily: fonts.heading,
     color: colors.heading,
