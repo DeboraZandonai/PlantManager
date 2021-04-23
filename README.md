@@ -1,10 +1,12 @@
 <h1 align="center">
     <img alt="PlantManager" title="PlantManager" src=".github/logo.svg" />
 </h1>
-<br>
-<p align="center">
-  <img alt="Moveit" src=".github/plantmanager-preview.png">
-</p>
+
+![Badge](.github/mobileplant.gif)
+
+## 💻 Project proposal
+
+Project developed during the 5th edition of the Next Level Week of Rocketseat- ReactNative Trail.
 
 ## 🧪 Technologies
 
@@ -14,24 +16,6 @@ This project was developed using the following technologies:
 - [Expo](https://expo.io/)
 - [TypeScript](https://www.typescriptlang.org/)
 
-<div align="center">
-  <img src=".github/podcastr-logo.svg" alt="Podcastr logo">
-</div>
-
-![Badge](.github/web.gif)
-
-## 💻 Project proposal
-
-Podcastr is a platform built for podcast broadcasting. Project developed during the 5th edition of the Next Level Week of Rocketseat- ReactJS Trail.
-
-## 🧭 Tecnologies
-
-This project was developed using cutting edge front-end technologies.
-
-- [ReactJS](https://reactjs.org/)
-- [Typescript](https://www.typescriptlang.org/)
-- [Next.js](https://nextjs.org/)
-
 <h2>
   📌 To have a copy of the project
 </h2>
@@ -39,7 +23,7 @@ This project was developed using cutting edge front-end technologies.
 ### Clone the repository to have a copy of the code on your machine
 
 ```bash
-$ git clone https://github.com/DeboraZandonai/Podcastr && cd Podcastr
+$ git clone https://github.com/DeboraZandonai/PlantManager && cd PlantManager
 ```
 
 ### Load dependencies
@@ -48,19 +32,70 @@ $ git clone https://github.com/DeboraZandonai/Podcastr && cd Podcastr
 $ yarn install
 ```
 
-### Run the backend fake server
+### Running the Json-server
+
+The json server will give access to the images.
+
+**To install**
 
 ```bash
-$ yarn server
+$ yarn add -g json-server
 ```
 
-### Run the project
+**or**
 
 ```bash
-$ yarn dev
+$ npm install -g json-server
 ```
 
-The app will be available for access on your browser at **http://localhost:3000**
+**To run it**
+
+```bash
+$ json-server ./src/services/server.json --host 192.168.0.119 --port 3333
+```
+
+Note that the local ip 192.168.0.119 is mine, you must replace it with yours, to find out what your ip is, just go to your cmd and run the following command:
+
+```bash
+$ ipconfig
+```
+
+NOTE: Choose the option: IPv4 address.
+<br/>
+
+## Change the ip address in the api
+
+<br/>
+
+![Badge](.github/api.png)
+
+## Run the project
+
+```bash
+$ expo start
+```
+
+After doing this, the metro bundler will open in your browser. Some options for running the Application:
+
+#### 1 - Android emulator
+
+On the metro bundler page, click on "Run on Android device / emulator" and wait to load. Keep in mind that it is necessary to have gone through the process of installing the android sdk, etc.
+
+#### 2 - IOS Emulator
+
+On the metro bundler page, click on "Run on iOS simulator" and wait to load.
+
+#### 3 - Your smartphone
+
+Download the Expo app:
+
+- [iOS](https://itunes.apple.com/app/apple-store/id982107779)
+- [Android](https://play.google.com/store/apps/details?id=host.exp.exponent&referrer=www)
+
+After downloading, go back to the metro bundler page and scan the QR Code with the Expo app.
+
+<em>For more details on how to run the app on an emulator or on your physical device, click <a href="https://react-native.rocketseat.dev/">on here</a>.</em>
+<br />
 
 ## 📝 Licença
 
